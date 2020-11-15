@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
+//mongoose to enforce the schema
 
 const Schema = mongoose.Schema;
 
 
 const WorkoutSchema = new Schema({
-    
+    //following the seeds file to set up the 'table' of data: day, type, name, duration, weight, reps and sets
+
         day: {
             type: Date,
             default: Date.now
@@ -16,6 +18,10 @@ const WorkoutSchema = new Schema({
                 required: "Value required",
                 trim: true,
                 unique: true
+            },
+            {
+                name: String,
+
             }
         ]
 

@@ -17,9 +17,14 @@ app.use(express.static("public"));
   useNewUrlParser: true,
    useFindAndModify: false
  });
-
+const db = mongoose.connection;
 
 app.use(require("./routes/apiRoute.js"));
+app.use(require("./routes/htmlRoute.js"));
+
+db.once("open", () =>{
+    console.log("Connected to MongoDB using mongoose!");
+});
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
