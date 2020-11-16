@@ -5,11 +5,11 @@ const Schema = mongoose.Schema;
 
 
 const WorkoutSchema = new Schema({
-    //following the seeds file to set up the 'table' of data: day, type, name, duration, weight, reps and sets
+    //following the seeds file to set up the 'table' of data: day, type, name, duration, weight, reps,sets and distance where applicable.
 
         day: {
             type: Date,
-            default: Date.now  //I get it now!
+            default: Date.now 
         },
         
         exercises: [
@@ -41,7 +41,11 @@ const WorkoutSchema = new Schema({
                 duration: {
                 type: Number,
                 required: "Enter duration in minutes"
-            } 
+            },
+                distance: {
+                    type: Number,
+                    required: "Enter distance in miles"
+                }, 
                   
             }]
 

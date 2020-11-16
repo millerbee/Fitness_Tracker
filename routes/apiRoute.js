@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Workout = require("../models/workout.js");
 
 router.post("/api/workouts", (req, res) => {
-    Workout.create({})
+    Workout.create({type: "workout"})
       .then(dbWorkout => {
         res.json(dbWorkout);
         console.log(res);
@@ -23,7 +23,7 @@ router.post("/api/workouts", (req, res) => {
       });
   });
 //this route is to 'Add Exercise'
-//I had empty object when using id and params. boady and params worked (ish)
+//I had empty object when using id and params. body and params worked (ish)
   router.put("/api/workouts/:id", function({body, params}, res) {
    Workout.findByIdAndUpdate(
       params.id,
