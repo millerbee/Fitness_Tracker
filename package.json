@@ -8,6 +8,7 @@
     "start": "node server.js",
     "watch": "nodemon server.js",
     "seed": "node seeders/seed.js"
+
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,9 @@
     "mongojs": "^3.1.0",
     "mongoose": "^5.10.14",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.6"
   }
 }
