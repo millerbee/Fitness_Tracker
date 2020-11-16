@@ -22,18 +22,21 @@ router.post("/api/workouts", (req, res) => {
         res.status(400).json(err);
       });
   });
-
-router.put("/api/workouts/:id",  (req,res)=>{
-  Workout.findByIdAndUpdate()
-  .then(({ body }) => db.Workout.findByIdAndUpdate({}, { $push: { exercises: body } }, { new: true }))
-  .then(dbWorkout => {
-    res.json(dbWorkout);
-   
+//this route is to 'Add Exercise'
+//I had empty object when using id and params. boady and params worked (ish)
+  router.put("/api/workouts/:id", function({body, params}, res) {
+   Workout.findByIdAndUpdate(
+      params.id,
+      { $push: { exercises: body } },
+      { new: true }
+    )
+      .then(dbWorkout => {
+        res.json(dbWorkout);
+      })
+      .catch(err => {
+        res.json(err);
+      });
   })
-  .catch(err => {
-    res.json(err);
-  });
-});
 
 router.get("/api/workouts/range", (req, res) => {
   Workout.find({})
