@@ -13,14 +13,14 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-
- mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Fitness", {
+const db = mongoose.connection;
+ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Workout", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: false
  });
-const db = mongoose.connection;
+
 
 app.use(require("./routes/apiRoute.js"));
 app.use(require("./routes/htmlRoute.js"));

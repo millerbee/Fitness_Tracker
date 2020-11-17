@@ -2,6 +2,6 @@
 
 module.exports = {
 	"undefined": "localhost/LOCAL_DB_NAME",
-	"dev": "localhost/workout",
+	"dev": "localhost/Workout",
 	"prod": "localhost/PROD_DB_NAME"
 }
