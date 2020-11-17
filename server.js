@@ -1,7 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan");
-const { Workout } = require("./models/workout.js");
+
+const Workout  = require("./models/workout.js");
 
 const PORT = process.env.PORT || 3000;
 
@@ -13,7 +14,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-const db = mongoose.connection;
+
  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Fitness", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -27,10 +28,10 @@ app.use(require("./routes/htmlRoute.js"));
 
 
 // using tutorial from book to log a message when db donnection occurs, Jonathan Wexler - Get rogramming with NodeJS-
-db.once("open", () =>{
-    console.log("Connected to MongoDB using mongoose!");
+// db.once("open", () =>{
+//     console.log("Connected to MongoDB using mongoose!");
 
-});
+// });
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
