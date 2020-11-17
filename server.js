@@ -14,15 +14,13 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+const db = mongoose.connection;
  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/Fitness", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
-  useFindAndModify: false})
-  const db = mongoose.connection;
-mongoose.connection.once('open', () => { console.log('MongoDB Connected'); });
-mongoose.connection.on('error', (err) => { console.log('MongoDB connection error: ', err);
-});
+  useFindAndModify: false
+ });
 
 
 app.use(require("./routes/apiRoute.js"));
