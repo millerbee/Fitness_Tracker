@@ -38,7 +38,7 @@ MIT
 none
 
 ## Tests
-Tested in console and in heroku
+Tested in console and in Heroku
 
 ## Questions
 <p>Feel free to email me with questions or comments and take a look at my github!</p>
