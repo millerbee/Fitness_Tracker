@@ -2,10 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const { Workout } = require("./models/workout.js");
-const httpServer = require('http');
-httpServer.timeout = 25 * 1000;
-httpServer.keepAliveTimeout = 70 * 1000;
-httpServer.headersTimeout = 120 * 1000;
+
 
 const PORT = process.env.PORT || 3000;
 
