@@ -1,5 +1,7 @@
+var express = require("express");
 const router = require("express").Router();
 const Workout = require("../models/workout.js");
+
 
 
 
@@ -16,7 +18,7 @@ router.post("/api/workouts", (req, res) => {
 
   router.get("/api/workouts", (req, res) => {
     Workout.find({})
-      // .sort({ date: -1 })
+       .sort({ date: -1 })
       .then(dbWorkout => {
         res.json(dbWorkout);
       })
